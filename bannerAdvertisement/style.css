@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.banner {
+    position: relative;
+    width: 1200px;
+    height: 627px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Start hidden */
+}
+
+.scene-1 {
+    background-image: url('assets/banner1.png');
+    animation: slideOutLeft 24s infinite; /* Adjusted duration */
+}
+
+.scene-2 {
+    background-image: url('assets/banner2_book.png');
+    animation: fadeInZoom 24s infinite; /* Adjusted duration */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 20px; /* Position at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em; /* Increased size */
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 8px black;
+    animation: textColorChange 24s infinite; /* Match duration */
+    font-family: 'Freckle Face', cursive; /* Use cartoonish font */
+}
+
+.student-info {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1em;
+    color: white;
+    font-family: 'Freckle Face', cursive; /* Use cartoonish font */
+}
+
+@keyframes slideOutLeft {
+    0%, 20% { opacity: 1; transform: translateX(0); }
+    25%, 50% { opacity: 0; transform: translateX(-100%); }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes fadeInZoom {
+    20%, 25% { opacity: 0; transform: scale(1); }
+    25%, 50% { opacity: 1; transform: scale(1.1); }
+    50%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes textColorChange {
+    0%, 100% { color: darkcyan; font-size: 3em; }
+    50% { color: yellow; font-size: 3.5em; } /* Change size */
+}
