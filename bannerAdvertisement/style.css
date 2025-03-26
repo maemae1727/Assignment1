@@ -1,21 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
 
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #f0f0f0;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    grid-auto-rows: auto;
+    grid-template-areas:
+        ". nav nav nav ."
+        ". banner banner banner ."
+        ". main main main sidebar";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: skyblue;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+}
+
 .banner {
+    grid-area: banner;
     position: relative;
-    width: 1200px;
-    height: 627px;
+    width: 805px; /* Adjusted for leaderboard */
+    height: 90px; /* Adjusted for leaderboard */
     overflow: hidden;
     cursor: pointer;
+    margin: 0 auto; /* Center the banner */
 }
 
 .scene {
@@ -29,36 +53,105 @@ body {
 
 .scene-1 {
     background-image: url('assets/banner1.png');
-    animation: slideOutLeft 24s infinite; /* Adjusted duration */
+    animation: slideOutLeft 15s infinite; /* Adjusted duration */
 }
 
 .scene-2 {
-    background-image: url('assets/banner2_book.png');
-    animation: fadeInZoom 24s infinite; /* Adjusted duration */
+    background-image: url('assets/banner2.png');
+    animation: fadeInZoom 15s infinite; /* Adjusted duration */
 }
 
 .overlay {
     position: absolute;
-    bottom: 20px; /* Position at the bottom */
+    bottom: 10px; /* Position at the bottom */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3em; /* Increased size */
+    font-size: 0.5em; /* Adjusted smaller size */
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 8px black;
     animation: textColorChange 24s infinite; /* Match duration */
     font-family: 'Freckle Face', cursive; /* Use cartoonish font */
+    max-width: 100%; /* Prevent overflow */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Optional: add ellipsis for overflow text */
 }
 
 .student-info {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    font-size: 1em;
-    color: white;
+    font-size: 1em; 
+    color: crimson;
     font-family: 'Freckle Face', cursive; /* Use cartoonish font */
 }
 
+.main {
+    grid-area: main;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    width: 300px; /* Adjust width as needed */
+    height: auto; /* Set height to auto to match the main content */
+}
+#sidebarAd {
+    width: 300px; /* Width of the sidebar ad */
+    height: 800px; /* Height of the sidebar ad */
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-content {
+    position: relative; /* Change to relative to allow absolute positioning of children */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+.ad-content img {
+    width: 100%; 
+    height: 100%; 
+}
+
+.ad-info {
+    position: absolute; /* Change to absolute to position it relative to .ad-content */
+    font-size: 1em;
+    bottom: 150px;
+    color: black;
+    font-family: 'Freckle Face', cursive; /* Use cartoonish font */
+}
+
+/* Progress bar */
+body {
+    background-color: #e0f7fa;
+    font-family: Arial, sans-serif;
+}
+
+.booking-system {
+    text-align: center;
+    margin: 20px;
+}
+
+.step {
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+}
+
+button {
+    margin: 10px;
+}
+
+
+/* Keyframes for animations */
 @keyframes slideOutLeft {
     0%, 20% { opacity: 1; transform: translateX(0); }
     25%, 50% { opacity: 0; transform: translateX(-100%); }
@@ -73,6 +166,6 @@ body {
 }
 
 @keyframes textColorChange {
-    0%, 100% { color: darkcyan; font-size: 3em; }
-    50% { color: yellow; font-size: 3.5em; } /* Change size */
+    0%, 70% { color: crimson; font-size: 2em; }
+    50% { color: orangered; font-size: 1em; } /* Change size */
 }

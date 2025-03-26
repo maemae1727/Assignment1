@@ -1,20 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parakai Springs Fast Pass</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="banner" onclick="window.open('https://www.parakaisprings.co.nz/', '_blank')">
-        <div class="scene scene-1">
-            <div class="overlay">Experience the Fast Pass!</div>
+    <div class="grid">
+        <nav class="nav">
+            <a href="../index.html">Home</a>
+        </nav>
+
+        <div class="banner" onclick="window.open('https://www.parakaisprings.co.nz/', '_blank')">
+            <div class="scene scene-1">
+                <div class="overlay">Experience the Fast Pass!</div>
+            </div>
+            <div class="scene scene-2">
+                <div class="overlay">Enjoy Premium Access!</div>
+            </div>
+            <div class="student-info">Angel Mae Galera | 1579941</div>
         </div>
-        <div class="scene scene-2">
-            <div class="overlay">Enjoy Premium Access!</div>
+
+        <main class="main">
+            <h1>Ticket Booking System</h1>
+            <div class="progress-bar" id="progress-bar"></div>
+
+            <!-- Booking Steps -->
+            <div class="booking-system">
+                <h1>BOOKING SYSTEM</h1>
+                <button id="bookNow">Book Now!</button>
+                <button id="faq">See More Info (Frequent Questions)</button>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="step" id="step1">
+                <h2>Step 1: Date & No. of Tickets</h2>
+                <label for="date">Pick a Date:</label>
+                <input type="date" id="date">
+                <label for="adults">Adults:</label>
+                <button id="adultMinus">-</button>
+                <span id="adultCount">0</span>
+                <button id="adultPlus">+</button>
+                <label for="children">Children:</label>
+                <button id="childMinus">-</button>
+                <span id="childCount">0</span>
+                <button id="childPlus">+</button>
+                <button class="next">Next ></button>
+            </div>
+
+            <div class="step" id="step2" style="display:none;">
+                <h2>Step 2: Contact Info</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email">
+                <label for="phone">Phone No:</label>
+                <input type="tel" id="phone">
+                <button class="previous">< Previous</button>
+                <button class="next">Next ></button>
+            </div>
+
+            <div class="step" id="step3" style="display:none;">
+                <h2>Step 3: Ticket Type & Extras</h2>
+                <label for="ticketType">Ticket Type:</label>
+                <select id="ticketType">
+                    <option value="type1">Type 1</option>
+                    <option value="type2">Type 2</option>
+                </select>
+                <label>Storage Lockers:</label>
+                <input type="radio" name="lockers" value="yes" checked> Yes
+                <input type="radio" name="lockers" value="no"> No
+                <label for="phoneExtra">Phone No:</label>
+                <input type="tel" id="phoneExtra">
+                <button class="previous">< Previous</button>
+                <button class="next">Next ></button>
+            </div>
+
+            <div class="step" id="step4" style="display:none;">
+                <h2>Step 4: Review and Submit</h2>
+                <p>Terms and Conditions: <em>(etc. etc.)</em></p>
+                <button class="accept">Accept</button>
+                <button class="previous">< Previous</button>
+                <button id="submit">Submit ></button>
+            </div>
+
+            <div class="step" id="step5" style="display:none;">
+                <h2>Booking Summary</h2>
+                <p>Users: <span id="summaryUsers"></span></p>
+                <button id="savePrint">Save/Print</button>
+                <button class="previous">< Previous</button>
+            </div>
+
+            <div class="step" id="step5" style="display:none;">
+                <h2>Booking Summary</h2>
+                <p>Users: <span id="summaryUsers"></span></p>
+                <button id="savePrint">Save/Print</button>
+                <button class="previous">< Previous</button>
+            </div>
+            
+            <!-- The "Return" button should be placed outside the steps for constant visibility -->
+            <button id="returnButton">Return</button> <!-- Added Return Button outside the steps -->
+            
+            
+        </main>
+
+        <div class="sidebar">
+            <div id="sidebarAd"></div>
+            <button id="replayButton">Replay Ad</button>
         </div>
-        <div class="student-info">Angel Mae Galera | 1579941</div>
     </div>
+
+    <script src="sidebar.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
