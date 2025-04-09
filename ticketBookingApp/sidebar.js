@@ -40,10 +40,7 @@ window.onload = function () {
     // Show the first ad
     showAd(currentAdIndex);
 
-    // Cycle through ads every 5 seconds
     setInterval(cycleAds, 5000);
-
-    // Click event to open the URL
     sidebarAd.addEventListener('click', function () {
         window.open('https:/www.newzealand.com/nz/', '_blank');
     });

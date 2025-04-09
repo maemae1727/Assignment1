@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parakai Springs Fast Pass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="grid">
+        <header class="nav">
+            <!-- Navigation Links -->
+            <a href="index.html" class="nav-link">Main Page</a> <!-- Link to main page -->
+            <a href=".\assets\Checkpoint1_Storyboards&Wireframe.pdf" class="nav-link" target="_blank">Storyboard (PDF)</a> <!-- Link to PDF -->
+        </header>
+        
+        <!-- Banner Section -->
+        <section class="banner" onclick="window.open('https:/www.parakaisprings.co.nz/', '_blank')">
+            <div class="scene scene-1">
+                <div class="overlay">Experience the Fast Pass!</div>
+            </div>
+            <div class="scene scene-2">
+                <div class="overlay">Enjoy Premium Access!</div>
+            </div>
+            <div class="student-info">Angel Mae Galera | 1579941</div>
+        </section>
+
+        <!-- Main Content Section -->
+        <main class="main">
+            <h1>Ticket Booking System</h1>
+            <div class="progress-bar" id="progress-bar"></div>
+        
+            <div class="booking-table">
+                <div class="step" id="step1">
+                    <h2>Step 1: Date & No. of Tickets</h2>
+                    <label for="date">Pick a Date:</label>
+                    <input type="date" id="date">
+                    <label for="adults">Adults:</label>
+                    <button id="adultMinus">-</button>
+                    <span id="adultCount">0</span>
+                    <button id="adultPlus">+</button>
+                    <br>
+                    <label for="children">Children:</label>
+                    <button id="childMinus">-</button>
+                    <span id="childCount">0</span>
+                    <button id="childPlus">+</button>
+                    <br>
+                    <button class="next">Next ></button>
+                </div>
+        
+                <div class="step" id="step2" style="display:none;">
+                    <h2>Step 2: Contact Info</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email">
+                    <label for="phone">Phone No:</label>
+                    <input type="tel" id="phone">
+                    <br>
+                    <button class="previous">< Previous</button>
+                    <button class="next">Next ></button>
+                </div>
+        
+                <div class="step" id="step3" style="display:none;">
+                    <h2>Step 3: Ticket Type & Extras</h2>
+                    <label for="ticketType">Ticket Type:</label>
+                    <select id="ticketType">
+                        <option value="type1">Type 1</option>
+                        <option value="type2">Type 2</option>
+                    </select>
+                    <br>
+                    <label>Storage Lockers:</label>
+                    <input type="radio" name="lockers" value="yes" checked> Yes
+                    <input type="radio" name="lockers" value="no"> No
+                    <br>
+                    <label for="phoneExtra">Phone No:</label>
+                    <input type="tel" id="phoneExtra">
+                    <br>
+                    <button class="previous">< Previous</button>
+                    <button class="next">Next ></button>
+                </div>
+        
+                <div class="step" id="step4" style="display:none;">
+                    <h2>Step 4: Review and Submit</h2>
+                    <div class="terms-container">
+                        <p class="terms-heading">Terms and Conditions</p>
+                        <div class="terms-content">
+                            <p>By purchasing a ticket, you agree to the following terms and conditions:</p>
+                            <p>1. Ticket Validity: Tickets are valid only for the date specified at the time of purchase. No refunds or exchanges will be permitted for tickets purchased for a specific date.</p>
+                            <p>2. Entry Requirements: All guests must present a valid ticket upon entry. Guests without a valid ticket will not be allowed to enter the venue.</p>
+                            <p>3. Cancellation Policy: Tickets may be canceled up to 48 hours before the scheduled date for a full refund. Cancellations made less than 48 hours in advance will not be eligible for a refund.</p>
+                            <p>4. Weather Policy: The event will proceed rain or shine. In the event of severe weather that necessitates cancellation, guests will be notified via the contact information provided at the time of booking.</p>
+                            <p>5. Liability Waiver: By entering the venue, you agree to waive any claims against the organizers for any injuries or damages incurred during your visit.</p>
+                            <p>6. Code of Conduct: All guests are expected to behave in a respectful manner. The organizers reserve the right to remove any guest who is disruptive or violates the code of conduct.</p>
+                            <p>7. Privacy Policy: Your personal information will be collected and used in accordance with our privacy policy. We will not share your information with third parties without your consent.</p>
+                            <p>8. Changes to Terms: The organizers reserve the right to modify these terms and conditions at any time. Any changes will be communicated to ticket holders via email or through our website.</p>
+                            <p>9. Contact Information: For any questions or concerns regarding your ticket purchase, please contact our customer service team at [insert contact email or phone number].</p>
+                            <p>By continuing, you acknowledge that you have read, understood, and agree to these terms and conditions.</p>
+                        </div>
+                    </div> 
+                    <!-- Button for acceptance -->
+                    <button class="accept" id="acceptButton" disabled>Accept</button>
+                    <button class="previous">< Previous</button>
+                    <button id="submit">Submit ></button>
+                </div>
+
+                <div class="step" id="step5" style="display:none;">
+                    <h2>Booking Summary</h2>
+                    <p>Users: <span id="summaryUsers"></span></p>
+                    <p>Adults: <span id="summaryAdults"></span></p>
+                    <p>Children: <span id="summaryChildren"></span></p>
+                    <button id="savePrint">Save/Print</button>
+                    <button class="previous">< Previous</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <div id="sidebarAd"></div>
+            <button id="replayButton">Replay Ad</button>
+        </div>
+    </div>
+
+    <script src="sidebar.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
